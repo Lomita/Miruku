@@ -11,23 +11,23 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class Osu extends JFrame implements ActionListener
 {
-	private JButton bClick,
-					bEnd,
-					bTime,
-					bEndStat;
+	private JButton bClick,								/*!< JButton for click */
+					bEnd,								/*!< JButton for exit  */
+					bTime,								/*!< JButton for the timer dialog*/
+					bEndStat;							/*!< JButton for back to menu */
 
-	private JLabel lCount,
-				   lTime,
-				   lTimer,
-				   lGreat,
-				   lCountTimerA;
+	private JLabel lCount,								/*!< JLabel that shows how much Bananya's you caught */
+				   lTime,								/*!< JLabel that shows how many time is left */
+				   lTimer,								/*!< JLabel for the timer dialog */
+				   lGreat,								/*!< JLabel for start */
+				   lCountTimerA;						/*!< JLabel for start */
 
 	private JTextField tTime;
 
-	private int count = 0,
-				time = 0,
-				Rtime;
-
+	private int count = 0,								/*!< value for the counter */
+				time = 0,								/*!< value for the timer */
+				Rtime; 									/*!< original value for the timer */
+	
 	/*!
 	* timer
 	*/
@@ -126,7 +126,7 @@ public class Osu extends JFrame implements ActionListener
 	}
 
 	/*!
-	* create dialog to insert time for the timer
+	* create dialog to insert a value for the timer
 	*/
 	public void Timer()
 	{
@@ -150,7 +150,8 @@ public class Osu extends JFrame implements ActionListener
 	}
 
 	/*!
-	*
+	* remove the timer label
+	* create a new timer label
 	*/
 	public void lTimer()
 	{
@@ -205,7 +206,9 @@ public class Osu extends JFrame implements ActionListener
 			this.remove(bClick);
 			this.remove(lCount);
 			this.repaint();
+			
 			OsuMoveButton();
+			
 			count++;
 			lcounter(count);
 		}
@@ -218,7 +221,7 @@ public class Osu extends JFrame implements ActionListener
 		{
 			time = Integer.parseInt(tTime.getText());
 			Rtime = time;
-			System.out.println(Rtime);
+			
 			this.remove(lTimer);
 			this.remove(tTime);
 			this.remove(bTime);
@@ -231,6 +234,7 @@ public class Osu extends JFrame implements ActionListener
 			lTime = new JLabel ("Time left " + time + "s");
 			lTime.setBounds(1150,0,1000,50);
 			lTime.setFont(new Font("Arial", Font.BOLD, 17));
+			
 			this.add(lTime);
 			myTimer.scheduleAtFixedRate(task,1000, 1000);
 		}

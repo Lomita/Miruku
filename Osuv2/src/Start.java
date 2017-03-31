@@ -9,5 +9,6 @@ public class Start
 	{
 		@SuppressWarnings("unused")
 		OsuMenu menu = new OsuMenu();
+		menu.setResizable(false);
 	}
 }

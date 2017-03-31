@@ -2,5 +2,5 @@
 
 public class OsuCalc 
 {
-
+	/*! for later calculations */
 }

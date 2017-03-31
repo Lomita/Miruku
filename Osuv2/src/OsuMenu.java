@@ -14,6 +14,7 @@ public class OsuMenu extends JFrame implements ActionListener
 					bStandard, 							/*!< JButton for standard game mode */
 					bTime;     							/*!< JButton for time game mode */
 	
+	
 	/*!
 	* Create the OsuMenu
 	*/
@@ -45,8 +46,6 @@ public class OsuMenu extends JFrame implements ActionListener
 	*/
 	public void GameMode()
 	{
-
-		
 		bStandard = new JButton ("Standard");
 		bStandard.setBounds(400 ,400 ,200 ,100);
 		
@@ -72,6 +71,7 @@ public class OsuMenu extends JFrame implements ActionListener
 		{
 			bStart.setVisible(false);
 			bClose.setVisible(false);
+			
 			GameMode();
 		}
 		
@@ -82,7 +82,9 @@ public class OsuMenu extends JFrame implements ActionListener
 		{
 			bStart.setVisible(false);
 			bClose.setVisible(false);
+			
 			this.dispose();
+			
 			OU.OsuStart();
 			OU.OsuMoveButton();
 			OU.pressEnd();
@@ -96,7 +98,9 @@ public class OsuMenu extends JFrame implements ActionListener
 		{
 			bStart.setVisible(false);
 			bClose.setVisible(false);
+			
 			this.dispose();
+			
 			OU.OsuStart();
 			OU.Timer();
 		}
