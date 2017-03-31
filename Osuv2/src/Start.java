@@ -1,6 +1,10 @@
+/*! the start class */
+
 public class Start 
 {
-	//!<class Start
+	/*!
+	* start the OsuMenu
+	*/
 	public static void main(String[] args) 
 	{
 		@SuppressWarnings("unused")

@@ -2,17 +2,21 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-//!<class OsuMenu
+/*! the start class */
+
 @SuppressWarnings("serial")
 public class OsuMenu extends JFrame implements ActionListener
 {	
 	Osu OU = new Osu();
-	private JButton bStart, 
-					bClose, 
-					bStandard, 
-					bTime;
 	
-	//menu
+	private JButton bStart,  							/*!< JButton for start */
+					bClose,   							/*!< JButton for close */
+					bStandard, 							/*!< JButton for standard game mode */
+					bTime;     							/*!< JButton for time game mode */
+	
+	/*!
+	* Create the OsuMenu
+	*/
 	public OsuMenu()
 	{
 		this.setSize(1600,900);
@@ -23,7 +27,7 @@ public class OsuMenu extends JFrame implements ActionListener
 		bStart = new JButton ("Start");
 		bStart.setBounds(400 ,400 ,200 ,100);
 		
-		bClose = new JButton ("Quit");
+		bClose = new JButton ("Close");
 		bClose.setBounds(1000 ,400 ,200 ,100);
 		
 		bStart.setFont(new Font("Arial", Font.CENTER_BASELINE, 25));
@@ -36,13 +40,12 @@ public class OsuMenu extends JFrame implements ActionListener
 		bClose.addActionListener(this);
 	}
 	
-	//choose mode
+	/*!
+	* Create the GameMode menu
+	*/
 	public void GameMode()
 	{
-		this.setSize(1600,900);
-		this.setLocation(150,65);
-		this.setLayout(null);	
-		this.getContentPane().setBackground(Color.cyan);
+
 		
 		bStandard = new JButton ("Standard");
 		bStandard.setBounds(400 ,400 ,200 ,100);
@@ -62,7 +65,9 @@ public class OsuMenu extends JFrame implements ActionListener
 
 	public void actionPerformed(ActionEvent event) 
 	{
-		//start button event
+		/*!
+		* bStart button event
+		*/
 		if(event.getSource() == bStart)
 		{
 			bStart.setVisible(false);
@@ -70,7 +75,9 @@ public class OsuMenu extends JFrame implements ActionListener
 			GameMode();
 		}
 		
-		//standard button event
+		/*!
+		* standard mode button event
+		*/
 		else if(event.getSource() == bStandard)
 		{
 			bStart.setVisible(false);
@@ -81,7 +88,10 @@ public class OsuMenu extends JFrame implements ActionListener
 			OU.pressEnd();
 			OU.lcounter(0);
 		}
-		//time button event
+		
+		/*!
+		* Time mode button event
+		*/
 		else if(event.getSource() == bTime)
 		{
 			bStart.setVisible(false);
@@ -90,10 +100,13 @@ public class OsuMenu extends JFrame implements ActionListener
 			OU.OsuStart();
 			OU.Timer();
 		}
-		//close button event
+		
+		/*!
+		* Close Button event
+		*/
 		else if(event.getSource() == bClose) 
 		{
-			this.dispose();
+			System.exit(0);
 		}
 	}
 }
